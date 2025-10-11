@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/images/icon.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/vendor/aos/aos.css" />
+    <title>home</title>
+  </head>
+  <style>
+    /* *home.html */
+    :root {
+      --color: #ffffff;
+      --color2: #560bad;
+    }
+    body {
+      font-family: inherit;
+    }
+    .titles {
+      font-weight: 500;
+      border: none;
+    }
+    .titles h1 {
+      font-size: 59px;
+      text-transform: capitalize;
+    }
+    .titles h1 code {
+      color: white;
+      font-weight: bold;
+      font-family: inherit;
+      border-left: 6px solid #387be0;
+      border-right: 6px solid #387be0;
+      border-radius: 190px;
+      padding: 0px 15px;
+    }
+    .titles small {
+      font-size: 16px;
+      margin: 50px;
+      position: relative;
+      color: white;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+    .titles small::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px; /* Height of the underline */
+      bottom: -5px;
+      border-radius: 12px;
+      left: 0;
+      background-color: var(--bs-blue); /* Color of the underline */
+      transition: width 0.3s ease;
+    }
+    .button {
+      background-color: var(--color2);
+      font-family: inherit;
+      display: inline-block;
+      width: 11em;
+      height: 3em;
+      line-height: 2.8em;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--color2);
+      transition: color 0.5s;
+      z-index: 1;
+      font-size: 22px;
+      border-radius: 6px;
+      font-weight: 500;
+      color: var(--color);
+    }
+
+    .button:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: var(--color);
+      height: 150px;
+      width: 14em;
+      border-radius: 50%;
+    }
+
+    .button:hover {
+      color: var(--color2);
+    }
+
+    .button:before {
+      top: 100%;
+      left: 100%;
+      transition: all 0.7s;
+    }
+
+    .button:hover:before {
+      top: -30px;
+      left: -30px;
+    }
+
+    .button:active:before {
+      background: #3a0ca3;
+      transition: background 0s;
+    }
+    .button:active {
+      color: var(--color);
+      transition: background 0s;
+    }
+    .home {
+      background: url("assets/images/bg-3-train.jpg") no-repeat fixed;
+      background-size: cover;
+      min-height: 100vh;
+      max-height: 200vh;
+    }
+    .hero-section {
+      min-height: 100vh;
+      max-height: 200vh;
+    }
+    footer {
+      margin: 0;
+    }
+    .train-svg img {
+      width: 90%;
+      height: 90%;
+      animation: ani 2s infinite;
+    }
+    .train-svg img:hover {
+      /* animation-play-state: paused; */
+      cursor: pointer;
+    }
+    @keyframes ani {
+      0% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translate(10px, 10px);
+      }
+      50% {
+        transform: translateX(20px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+    .feature {
+      height: fit-content;
+      background-color: #dedede;
+      color: rgb(0, 0, 0);
+    }
+    .feature div img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .feature div {
+      padding: 12px;
+    }
+    .Technologies a {
+      color: rgb(0, 0, 0);
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 20px;
+      cursor: default;
+    }
+    .Technologies img {
+      width: 160px;
+    }
+    .Technologies {
+      height: 300px;
+    }
+    .Technologies:hover img {
+      width: 200px;
+      transition: 0.9s all;
+    }
+    @media (max-width: 760px) {
+      .Technologies img {
+        width: 70px;
+      }
+      .Technologies {
+        height: 180px;
+      }
+      .Technologies:hover img {
+        width: 70px;
+      }
+      .train-svg {
+        display: none;
+      }
+      .titles h1 {
+        font-size: 49px;
+      }
+    }
+    @media (max-width: 500px) {
+      .titles h1 {
+        font-size: 39px;
+      }
+    }
+  </style>
+  <body>
+    <div class="preloader_container">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-circle"></div>
+        <div class="loader-circle"></div>
+      </div>
+    </div>
+    <section class="home" id="home">
+      <section class="hero-section" id="hero-section">
+        <div class="d-flex justify-content-between navbar_bar">
+          <div>
+            <a
+              class="navbar-brand text-lg"
+              href="#"
+              onclick="openExternal('https://www.oncf.ma/en/')"
+            >
+              <img
+                src="assets/images/oncf_logo.png"
+                width="100"
+                alt=""
+                class="logo"
+                id="logo"
+              />
+            </a>
+            <a
+              class="navbar-brand text-lg"
+              href="#"
+              onclick="openExternal('https://www.est.um5.ac.ma/')"
+            >
+              <img
+                src="assets/images/est2.png"
+                width="100"
+                alt=""
+                class="logo"
+                id="logo2"
+              />
+            </a>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center"></div>
+          <div class="d-flex justify-content-center align-items-center">
+            <a href="" id="date"></a>
+          </div>
+        </div>
+        <div class="p-5 row d-flex align-items-center text-white">
+          <div class="col-md-6">
+            <div class="p-2 titles">
+              <h1
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="2600"
+              >
+                BLock Manuel de Voie Unique <code>Simulation</code>
+              </h1>
+              <small
+                data-aos="fade-right"
+                data-aos-duration="2600"
+                data-aos-easing="linear"
+                >best experience
+              </small>
+            </div>
+            <br />
+            <a
+              href="BMVU.html"
+              class="button text-center"
+              data-aos="zoom-in"
+              data-aos-easing="linear"
+              data-aos-duration="2600"
+              >Commencer</a
+            >
+          </div>
+          <div class="col-2"></div>
+          <div class="col-4 train-svg">
+            <img
+              src="assets/images/train-svg.jpg"
+              alt=""
+              class="rounded"
+              id="train-svg"
+            />
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="section4 row p-2">
+      <h1 class="col-12" data-aos="fade-right" data-aos-duration="700">
+        Les technologies utilisées
+      </h1>
+      <div
+        class="d-flex border col-sm-3 col-6 Technologies p-2 justify-content-center align-items-center"
+      >
+        <a
+          class="d-flex justify-content-center align-items-center flex-column"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <img src="assets/images/HTML.png" alt="HTML" />
+          <p>HTML</p>
+        </a>
+      </div>
+      <div
+        class="d-flex border col-sm-3 col-6 Technologies p-2 justify-content-center align-items-center"
+      >
+        <a
+          class="d-flex justify-content-center align-items-center flex-column"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <img src="assets/images/Css.png" alt="Css" />
+          <p>Css</p>
+        </a>
+      </div>
+      <div
+        class="d-flex border col-sm-3 col-6 Technologies p-2 justify-content-center align-items-center"
+      >
+        <a
+          class="d-flex justify-content-center align-items-center flex-column"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <img src="assets/images/bootstrap.png" alt="Bootstrap" />
+          <p>Bootstrap</p>
+        </a>
+      </div>
+      <div
+        class="d-flex border col-sm-3 col-6 Technologies p-2 justify-content-center align-items-center"
+      >
+        <a
+          class="d-flex justify-content-center align-items-center flex-column"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <img
+            src="assets/images/JAVASCRIPT.jpg"
+            alt="javascript"
+            style="border-radius: 20px"
+          />
+          <p>Javascript</p>
+        </a>
+      </div>
+      <div
+        class="d-flex border col-12 Technologies p-2 justify-content-center align-items-center"
+      >
+        <a
+          class="d-flex justify-content-center align-items-center flex-column"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <img src="assets/images/electron-icon.png" alt="Electron js" />
+          <p>Electron js</p>
+        </a>
+      </div>
+    </section>
+    <footer class="d-flex justify-content-center align-items-center py-4">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="700"
+        class="d-flex justify-content-center align-items-center flex-column gap-2 p-2"
+      >
+        <h2 class="text-white w-100">
+          Crée par
+          <a href="https://zakariaebakkari.vercel.app/" class="text-white">Zakariae Bakkari</a>
+        </h2>
+        <small class="w-100 ps-3"
+          >Un Étudiant dans EST(École Superieur de Technologie)</small
+        >
+      </div>
+    </footer>
+    <!-- back to top -->
+    <a onclick="topFunction()" id="myBtn">
+      <i class="bi-arrow-up-circle-fill"></i>
+    </a>
+    <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      /**
+       * Back to top button
+       */
+      // Get the button:
+      let mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          mybutton.style.display = "block";
+          mybutton.style.transition = "0.7s ease";
+          mybutton.style.bottom = "20px";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+    <!-- <script src="assets/js/script.js"></script> -->
+    <script>
+      window.addEventListener("load", function () {
+        const preloader_container = document.getElementsByClassName(
+          "preloader_container"
+        )[0];
+        setTimeout(() => {
+          preloader_container.style.display = "none";
+        }, 1600);
+      });
+    </script>
+  </body>
+</html>
