@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/images/icon.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>BMVU simulator</title>
+  </head>
+  <style>
+    :root {
+      --bs-blue: rgb(56, 118, 191);
+      --bs-dark-blue: rgb(25, 38, 85);
+      --bs-indigo: #6610f2;
+      --bs-purple: #6f42c1;
+      --bs-pink: #d63384;
+      --bs-red: #dc3545;
+      --bs-orange: rgb(255, 169, 58);
+      --bs-yellow: #ffc107;
+      --bs-green: rgb(129, 162, 99);
+      --bs-teal: #20c997;
+      --bs-cyan: #0dcaf0;
+      --bs-white: #fff;
+      --bs-gray: #6c757d;
+      --bs-gray-dark: #343a40;
+      --bs-primary: #387be0;
+      --bs-secondary: #6c757d;
+      --bs-success: #198754;
+      --bs-info: #0dcaf0;
+      --bs-warning: #ffc107;
+      --bs-danger: #dc3545;
+      --bs-light: #f8f9fa;
+      --bs-dark: #212529;
+      --bs-first: rgb(172, 187, 254);
+    }
+    .download_ouvrire {
+      padding: 20px;
+      border-radius: 12px;
+      background-color: rgb(255, 255, 255);
+      z-index: 3200;
+      width: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .button {
+      background-color: var(--bs-success);
+      width: 9em;
+      height: 2em;
+      margin: 10px;
+      line-height: 2em;
+      border: 2px solid var(--bs-success);
+      z-index: 1;
+      font-size: 18px;
+      color: var(--color);
+    }
+    .button.ouvrire_img {
+      background-color: var(--bs-yellow);
+      border: 2px solid var(--bs-yellow);
+      color: var(--color);
+    }
+
+    .button:hover {
+      color: var(--bs-dark);
+    }
+    .button:active:before {
+      background: #d0d0d0;
+      transition: background 0s;
+    }
+    .download_ouvrire-close {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 5px;
+      background-color: #6c757d;
+      border-radius: 0 12px 0 2px;
+    }
+
+    .bi-x-circle{
+      cursor: pointer;
+      position: absolute;
+      right: -3px;
+      top: 3px;
+    }
+  </style>
+  <body>
+    <div class="window">
+   
+
+      <!-- Preloader -->
+      <div class="preloader_container">
+        <div class="loader">
+          <div class="loader-circle"></div>
+          <div class="loader-circle"></div>
+          <div class="loader-circle"></div>
+        </div>
+      </div>
+      <!-- section -->
+      <section class="hero-section" id="hero-section">
+
+        <!-- !-------------------------------alerts---------------------- -->
+        <div
+          class="alert alert-warning alert-dismissible fade show message_warning_div fixed top-5"
+          id=""
+          role="alert"
+          id="message_warning_div"
+        >
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+
+          <strong
+            ><i
+              class="fa-solid fa-triangle-exclamation"
+              style="color: #ffc800"
+            ></i> </strong
+          ><data value="" id="message_warning"> zakariae Bakkari</data>
+        </div>
+        <div
+          class="alert alert-success alert-dismissible fade show message_information_div fixed top-5"
+          id=""
+          role="alert"
+          id="message_information_div"
+        >
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+
+          <strong
+            ><i
+              class="fa-solid fa-circle-check pe-2"
+              style="color: #199400"
+            ></i>
+            Bravoo ! </strong
+          ><data value="" id="message_information">
+            You should check in on some of those fields below.</data
+          >
+        </div>
+
+        <!-- *------------------------------header----------------------- -->
+        <div class="d-flex justify-content-between navbar_bar">
+          <div>
+            <a
+              class="navbar-brand text-lg"
+              href="#"
+              onclick="openExternal('https://www.oncf.ma/en/')"
+            >
+              <img
+                src="assets/images/oncf_logo.png"
+                width="100"
+                alt=""
+                class="logo"
+                id="logo"
+              />
+            </a>
+            <a
+              class="navbar-brand text-lg"
+              href="#"
+              onclick="openExternal('https://www.est.um5.ac.ma/')"
+            >
+              <img
+                src="assets/images/est2.png"
+                width="100"
+                alt=""
+                class="logo"
+                id="logo2"
+              />
+            </a>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <a
+              class="btn dropdown-toggle navbar_items relative"
+              id=""
+              href="home.html"
+            >
+              Accueil
+            </a>
+            <div class="dropdown dropdown1">
+              <a
+                class="btn dropdown-toggle navbar_items"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cours
+              </a>
+              <ul class="dropdown-menu dropdown-menu1">
+                <li>
+                  <div class="row">
+                    <a
+                      class="dropdown-item dropdown-item1 col-12 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/pdf/signalisation1.pdf')"
+                    >
+                      <p class="">Cour Signalisation 1</p></a
+                    >
+                    <a
+                      class="dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/pdf/signalisation2.pdf')"
+                    >
+                      <p class="">Cour Signalisation 2</p></a
+                    >
+                  </div>
+                </li>
+                <li>
+                  <div class="row">
+                    <a
+                      class="dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/pptx/BMVU.pptx')"
+                    >
+                      <p class="">BMVU</p></a
+                    >
+                    <a
+                      id="shema1"
+                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/images/BMVU1.png')"
+                    >
+                      <p class="">shéma 1</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="row">
+                    <a
+                      id="shema2"
+                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/images/BMVU2.png')"
+                    >
+                      <p class="">shéma 2</p></a
+                    >
+                    <a
+                      id="shema3"
+                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
+                      onclick="downloadPDF('assets/images/BMVU3.png')"
+                    >
+                      <p class="">shéma 3</p></a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              class="btn dropdown-toggle navbar_items relative"
+              id="navbar_items_etape"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#Id1"
+              aria-controls="Id1"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Étapes
+            </a>
+
+            <div
+              class="offcanvas offcanvas-end"
+              data-bs-scroll="true"
+              tabindex="-1"
+              id="Id1"
+              aria-labelledby="etaps"
+            >
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Les étapes de BMVU</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <h6>Définition de BMVU</h6>
+                BMVU (Bloc Manuel de Voie Unique) est un système de
+                signalisation ferroviaire utilisé pour gérer le trafic sur une
+                voie unique. Il permet de s'assurer qu'un seul train se trouve
+                sur une section de voie à la fois, garantissant ainsi la
+                sécurité des circulations.
+                <hr />
+                <h1 class="small">Pour envoyer un trian de A á B</h1>
+                <h6>Étape 1:</h6>
+                <div class="fs-9 w-100">
+                  <code>Test </code>: Vérifiez les conditions nécessaires (pas
+                  de blockage,semaphore fermer, test disactiver,annonce
+                  disactiver).
+                </div>
+                <h6>Étape 2:</h6>
+                <div class="fs-9 w-100">
+                  <code> sémaphore </code> Ouvrez la voie libre. feu vert
+                </div>
+                <h6>Étape 3:</h6>
+                <div class="fs-9 w-100">
+                  <code>la pédale de blocage <kbd>B</kbd> </code>: Le train se
+                  met en mouvement. Lorsqu'il passe sur la pédale, un signal de
+                  blocage est activé pour assurer la sécurité et empêcher le
+                  passage d'un autre train.
+                </div>
+                <h6>Étape 4:</h6>
+                <div class="fs-9 w-100">
+                  <code> Fermez le sémaphore </code>: Assurez la fermeture du
+                  signal et la sécurité.
+                </div>
+                <h6>Étape 5:</h6>
+                <div class="fs-9 w-100">
+                  <code> Cliquez sur annonce </code>: Envoyez une annonce à la
+                  gare B pour informer du passage du train, puis cliquez sur
+                  sonnerie pour arrêter la sonnerie (gare B).
+                </div>
+                <hr />
+                <h6>Étape 6:</h6>
+                <div class="fs-9 w-100">
+                  <code>
+                    Cliquez sur la pédale de passage à la gare B
+                    <kbd>PB</kbd> </code
+                  >: Pour faire arriver le train à la gare B.
+                </div>
+                <h6>Étape 7:</h6>
+                <div class="fs-9 w-100">
+                  <code> Cliquez sur réédition (bloc côté B) </code>: Assurez
+                  l'arrivée du train, puis cliquez sur sonnerie pour arrêter la
+                  sonnerie (gare A).
+                </div>
+              </div>
+            </div>
+
+            <div class="dropdown dropdown1">
+              <a
+                class="btn dropdown-toggle navbar_items"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Aide
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item col-6 row d-flex justify-content-center align-items-center"
+                    href="about.html"
+                    >About Developper</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <a ><i class="bi bi-keyboard-fill"></i></a>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <a href="" id="date"></a>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <img
+              src="assets/images/icon.png"
+              width="40"
+              alt=""
+              class="logo_App"
+              id="logo_App"
+            />
+          </div>
+        </div>
+        <!-- *------------------------------header----------------------- -->
+
+        <!-- !----------------------------BMVU screen --------------------->
+
+        <!-- shortcuts -->
+        <div class="shortcuts-box dropzone-box row" >
+          <h2 >Shortcuts Menu</h2>
+          <i class="bi bi-x-circle"></i>
+          <ul class="col-6">
+              <li><span class="shortcut-key"><kbd>Ctrl + t</kbd></span> test</li>
+              <li><span class="shortcut-key"><kbd>Ctrl + s</kbd></span> semaphore</li>
+              <li><span class="shortcut-key"><kbd>Ctrl + r</kbd></span> redition</li>
+              <li><span class="shortcut-key"><kbd>Ctrl + a</kbd></span> annonce</li>
+              <li><span class="shortcut-key"><kbd>Ctrl + f</kbd></span> sonnerie</li>
+              <li><span class="shortcut-key"><kbd>Ctrl + b</kbd></span>  blockage</li>
+              <li><span class="shortcut-key"><kbd>b</kbd></span>  pedal block B (gare A)</li>
+              <li><span class="shortcut-key"><kbd>v</kbd></span> pb </li>
+              <li><span class="shortcut-key"><kbd>r</kbd></span> reload</li>
+          </ul>
+          <ul class="col-6">
+            <li><span class="shortcut-key"><kbd>Alt + t</kbd></span> test</li>
+            <li><span class="shortcut-key"><kbd>Alt + s</kbd></span> semaphore</li>
+            <li><span class="shortcut-key"><kbd>Alt + r</kbd></span> redition</li>
+            <li><span class="shortcut-key"><kbd>Alt + a</kbd></span> annonce</li>
+            <li><span class="shortcut-key"><kbd>Alt + f</kbd></span> sonnerie</li>
+            <li><span class="shortcut-key"><kbd>Alt + b</kbd></span>  blockage</li>
+            <li><span class="shortcut-key"><kbd>x</kbd></span>  pedal block B (gare A)</li>
+            <li><span class="shortcut-key"><kbd>c</kbd></span> pb </li>
+            <li><span class="shortcut-key"><kbd>f</kbd></span> fullscreen</li>
+        </ul>
+      </div>
+
+
+        <div class="container-fluid hero row height_100vh">
+          <!-- *-------------left block----------------- -->
+          <div class="col-3 block-cote block-coteA h-100 d-flex flex-column">
+            <div class="row flex-fill">
+              <div class="p-2 col-12 text-light d-flex justify-content-center">
+                <span>Block cote</span>
+              </div>
+              <div
+                class="p-2 col-12 text-light d-flex justify-content-center fs-2 fw-bold"
+              >
+                A
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_blockage"
+                id="div_blockageA " data-bs-toggle="tooltip" title="Ctrl + b"
+              >
+                <span>blockage</span>
+                <div class="  ">
+                  <a class="btn btn-block" id="btn-blockA">
+                    <div class="btn-support">
+                      <i class="bi bi-arrow-up"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_annonce"
+                id="div_annonceA" data-bs-toggle="tooltip"
+                title="Ctrl + a"
+              >
+                <span>Annonce</span>
+                <a class="a btn bm_btn btn-annonce" id="btn-annonceA"></a>
+                <span>
+                  voie
+                  <button
+                    class="btn-led led-annonce"
+                    id="led-annonceA"
+                  ></button>
+                  libre
+                </span>
+                <button
+                  class="btn-led led-annonce"
+                  id="led_annonceA_fullscreen"
+                ></button>
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_redition"
+                id="div_reditionA" data-bs-toggle="tooltip" title="Ctrl + r"
+              >
+                <span>redition</span>
+                <a class="a btn bm_btn btn-redition" id="btn-reditionA"></a>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_test"
+                id="div_testA" data-bs-toggle="tooltip" title="Ctrl + t"
+              >
+                <span>test</span>
+                <a class="a btn bm_btn btn-test" id="btn-testA"></a>
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center relative div_sonnerie"
+                id="div_sonnerieA" data-bs-toggle="tooltip" title="Ctrl + f"
+              >
+                <span>SONNERIE</span>
+                <a class="a btn bm_btn btn-sonnerie" id="btn-sonnerieA"></a>
+                <div class="icon_sonnerieA" id="icon_sonnerieA">
+                  <i class="fa-solid fa-bell fa-shake"></i>
+                </div>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_semaphore"
+                id="div_semaphoreA" data-bs-toggle="tooltip" title="Ctrl + s"
+              >
+                <span>SEMAPHORE</span>
+                <span>
+                  <button
+                    class="btn-led led-semaphore"
+                    id="led-semaphoreA"
+                  ></button>
+                </span>
+                <button
+                  class="btn-led led-semaphore mb-2"
+                  id="led_semaphoreA_fullscreen"
+                ></button>
+                <div>
+                  <a class="btn btn-semaphore" id="btn-semaphoreA">
+                    <div class="btn-support">
+                      <i class="bi bi-arrow-up"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- !----------------center screen---------------- -->
+          <div class="col-6 screen h-100">
+            <div class="diagram">
+              <div class="gare">
+                <div>GARE A</div>
+                <div>GARE B</div>
+              </div>
+              <div class="line_top_left"></div>
+              <div class="line_rotate_left"></div>
+              <div class="line_top_right"></div>
+              <div class="line_rotate_right"></div>
+              <div class="line"></div>
+              <div class="vertical_line"></div>
+              <button class="block b1" id="pedal1_block" data-bs-toggle="tooltip" title="b">B</button>
+              <button class="block p1-1" id="pedal1" data-bs-toggle="tooltip" title="c">pA</button>
+              <button class="block p1-2" id="pedal2" data-bs-toggle="tooltip" title="v">pB</button>
+              <button class="block b2" id="pedal2_block" data-bs-toggle="tooltip" title="x">B</button>
+              <div class="train train-left" id="train">
+                <img src="./assets/images/train1.png" alt="train" />
+              </div>
+              <div class="train train-right" id="train-1-b">
+                <img src="./assets/images/train1.png" alt="train" />
+              </div>
+
+              <div class="signal signal-left-1">
+                <img src="assets/images/feu_rouge.png" alt="" id="signal-left-1" />
+              </div>
+
+
+              <div class="signal signal-right-2">
+                <img src="assets/images/feu_rouge.png" alt="" id="signal-right-2" />
+              </div>
+
+              <div class="absolute bottom-5 left-50">
+                <a  data-bs-toggle="tooltip" title="r" href="" id="re" class="btn btn-2 rounded-50">
+                  <i class="bi bi-repeat"></i>
+                </a>
+                <button data-bs-toggle="tooltip" title="f" id="btn_fullscreen" class="btn btn-1 rounded-50">
+                  <i class="bi bi-arrows-angle-expand"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- *-----right block----- -->
+          <div class="col-3 block-cote block-coteB h-100 d-flex flex-column">
+            <div class="row flex-fill">
+              <div class="p-2 col-12 text-light d-flex justify-content-center">
+                <span>Block cote</span>
+              </div>
+              <div
+                class="p-2 col-12 text-light d-flex justify-content-center fs-2 fw-bold"
+              >
+                B
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_blockage"
+                id="div_blockageB" data-bs-toggle="tooltip" title="Alt + b"
+              >
+                <span>blockage</span>
+                <div class="  ">
+                  <a class="btn btn-block" id="btn-blockB">
+                    <div class="btn-support">
+                      <i class="bi bi-arrow-up"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_annonce"
+                id="div_annonceB" data-bs-toggle="tooltip" title="Alt + a"
+              >
+                <span>Annonce</span>
+                <a class="a btn bm_btn btn-annonce" id="btn-annonceB"></a>
+                <span>
+                  voie
+                  <button
+                    class="btn-led led-annonce"
+                    id="led-annonceB"
+                  ></button>
+                  libre
+                </span>
+                <button
+                  class="btn-led led-annonce"
+                  id="led_annonceB_fullscreen"
+                ></button>
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_redition"
+                id="div_reditionB" data-bs-toggle="tooltip" title="Alt + r"
+              >
+                <span>redition</span>
+                <a class="a btn bm_btn btn-redition" id="btn-reditionB"></a>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_test"
+                id="div_testB" data-bs-toggle="tooltip" title="Alt + t"
+              >
+                <span>test</span>
+                <a class="a btn bm_btn btn-test" id="btn-testB"></a>
+              </div>
+            </div>
+            <div class="row text-light flex-fill">
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center relative div_sonnerie"
+                id="div_sonnerieB" data-bs-toggle="tooltip" title="Alt + f"
+              >
+                <span>SONNERIE</span>
+                <a class="a btn bm_btn btn-sonnerie" id="btn-sonnerieB"></a>
+                <div class="icon_sonnerieB" id="icon_sonnerieB">
+                  <i class="fa-solid fa-bell fa-shake"></i>
+                </div>
+              </div>
+              <div
+                class="border p-2 col-6 d-flex justify-content-center flex-column align-items-center div_semaphore"
+                id="div_semaphoreB" data-bs-toggle="tooltip" title="Alt + s"
+              >
+                <span>SEMAPHORE</span>
+                <span>
+                  <button
+                    class="btn-led led-semaphore"
+                    id="led-semaphoreB"
+                  ></button>
+                </span>
+                <button
+                  class="btn-led led-semaphore mb-2"
+                  id="led_semaphoreB_fullscreen"
+                ></button>
+                <div>
+                  <a class="btn btn-semaphore" id="btn-semaphoreB">
+                    <div class="btn-support">
+                      <i class="bi bi-arrow-up"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+  
+      <div class="image-container" id="image-container">
+        <button
+          class="btn btn-close btn-close-image-container"
+          id="btn-close-image-container"
+        ></button>
+        <img src="./assets/images/bg-1.jpg" alt="" id="image-content-fullscreen" />
+      </div>
+      <!-- 
+  bootstrap linl
+ -->
+      <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/script.js"></script>
+      <!-- 
+  fontawsome link
+ -->
+      <script
+        src="https://kit.fontawesome.com/b3a4e89b33.js"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+
+        const { shell } = require("electron");
+
+        function openExternal(url) {
+          shell.openExternal(url);
+        }
+      </script>
+    </div>
+  </body>
+</html>
+
+<!--ctrl shift o  -->
