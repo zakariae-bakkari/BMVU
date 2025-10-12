@@ -11,7 +11,7 @@ L'application vise à simuler fidèlement le fonctionnement du système de signa
 ## 🏢 Contexte du Stage
 
 **Stage effectué à :** ONCF AGDAL - Rabat, Maroc  
-**Période :** [Période de stage]  
+**Période :** [2023/2024]  
 **Encadrement :** Ingénieurs et techniciens spécialisés en signalisation ferroviaire  
 **Institution académique :** EST (École Supérieure de Technologie)
 
