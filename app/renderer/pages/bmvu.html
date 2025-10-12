@@ -12,16 +12,14 @@
       href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="../assets/assets/images/icon.png" />
     <link rel="stylesheet" href="../assets/assets/css/style.css" />
-    <title>BMVU simulator</title>
+    <title>BMVU Simulation - ONCF AGDAL</title>
   </head>
   <style>
     :root {
@@ -107,25 +105,22 @@
   </style>
   <body>
     <div class="window">
-   
-
       <!-- Preloader -->
-      <!-- <div class="preloader_container">
+      <div class="preloader_container">
         <div class="loader">
           <div class="loader-circle"></div>
           <div class="loader-circle"></div>
           <div class="loader-circle"></div>
         </div>
-      </div> -->
+      </div>
       <!-- section -->
       <section class="hero-section" id="hero-section">
 
         <!-- !-------------------------------alerts---------------------- -->
         <div
           class="alert alert-warning alert-dismissible fade show message_warning_div fixed top-5"
-          id=""
           role="alert"
-          id="message_warning_div"
+          style="display: none; z-index: 9999;"
         >
           <button
             type="button"
@@ -133,19 +128,14 @@
             data-bs-dismiss="alert"
             aria-label="Close"
           ></button>
-
-          <strong
-            ><i
-              class="fa-solid fa-triangle-exclamation"
-              style="color: #ffc800"
-            ></i> </strong
-          ><data value="" id="message_warning"> zakariae Bakkari</data>
+          <strong><i class="fa-solid fa-triangle-exclamation" style="color: #ffc800"></i></strong>
+          <span id="message_warning">Message d'avertissement</span>
         </div>
+
         <div
           class="alert alert-success alert-dismissible fade show message_information_div fixed top-5"
-          id=""
           role="alert"
-          id="message_information_div"
+          style="display: none; z-index: 9999;"
         >
           <button
             type="button"
@@ -153,271 +143,70 @@
             data-bs-dismiss="alert"
             aria-label="Close"
           ></button>
-
-          <strong
-            ><i
-              class="fa-solid fa-circle-check pe-2"
-              style="color: #199400"
-            ></i>
-            Bravoo ! </strong
-          ><data value="" id="message_information">
-            You should check in on some of those fields below.</data
-          >
+          <strong><i class="fa-solid fa-circle-check pe-2" style="color: #199400"></i>Parfait !</strong>
+          <span id="message_information">Message d'information</span>
         </div>
 
         <!-- *------------------------------header----------------------- -->
-        <div class="d-flex justify-content-between navbar_bar">
-          <div>
-            <a
-              class="navbar-brand text-lg"
-              href="#"
-              onclick="openExternal('https://www.oncf.ma/en/')"
-            >
-              <img
-                src="../assets/assets/images/oncf_logo.png"
-                width="100"
-                alt=""
-                class="logo"
-                id="logo"
-              />
-            </a>
-            <a
-              class="navbar-brand text-lg"
-              href="#"
-              onclick="openExternal('https://www.est.um5.ac.ma/')"
-            >
-              <img
-                src="../assets/assets/images/est2.png"
-                width="100"
-                alt=""
-                class="logo"
-                id="logo2"
-              />
-            </a>
-          </div>
-
-          <div class="d-flex justify-content-center align-items-center">
-            <a
-              class="btn dropdown-toggle navbar_items relative"
-              id=""
-              href="home.html"
-            >
-              Accueil
-            </a>
-            <div class="dropdown dropdown1">
-              <a
-                class="btn dropdown-toggle navbar_items"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Cours
-              </a>
-              <ul class="dropdown-menu dropdown-menu1">
-                <li>
-                  <div class="row">
-                    <a
-                      class="dropdown-item dropdown-item1 col-12 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/pdf/signalisation1.pdf')"
-                    >
-                      <p class="">Cour Signalisation 1</p></a
-                    >
-                    <a
-                      class="dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/pdf/signalisation2.pdf')"
-                    >
-                      <p class="">Cour Signalisation 2</p></a
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div class="row">
-                    <a
-                      class="dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/pptx/BMVU.pptx')"
-                    >
-                      <p class="">BMVU</p></a
-                    >
-                    <a
-                      id="shema1"
-                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/images/BMVU1.png')"
-                    >
-                      <p class="">shéma 1</p>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <div class="row">
-                    <a
-                      id="shema2"
-                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/images/BMVU2.png')"
-                    >
-                      <p class="">shéma 2</p></a
-                    >
-                    <a
-                      id="shema3"
-                      class="shema dropdown-item dropdown-item1 col-6 row d-flex justify-content-center align-items-center"
-                      onclick="downloadPDF('assets/images/BMVU3.png')"
-                    >
-                      <p class="">shéma 3</p></a
-                    >
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <a
-              class="btn dropdown-toggle navbar_items relative"
-              id="navbar_items_etape"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#Id1"
-              aria-controls="Id1"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Étapes
-            </a>
-
-            <div
-              class="offcanvas offcanvas-end"
-              data-bs-scroll="true"
-              tabindex="-1"
-              id="Id1"
-              aria-labelledby="etaps"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Les étapes de BMVU</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <h6>Définition de BMVU</h6>
-                BMVU (Bloc Manuel de Voie Unique) est un système de
-                signalisation ferroviaire utilisé pour gérer le trafic sur une
-                voie unique. Il permet de s'assurer qu'un seul train se trouve
-                sur une section de voie à la fois, garantissant ainsi la
-                sécurité des circulations.
-                <hr />
-                <h1 class="small">Pour envoyer un trian de A á B</h1>
-                <h6>Étape 1:</h6>
-                <div class="fs-9 w-100">
-                  <code>Test </code>: Vérifiez les conditions nécessaires (pas
-                  de blockage,semaphore fermer, test disactiver,annonce
-                  disactiver).
-                </div>
-                <h6>Étape 2:</h6>
-                <div class="fs-9 w-100">
-                  <code> sémaphore </code> Ouvrez la voie libre. feu vert
-                </div>
-                <h6>Étape 3:</h6>
-                <div class="fs-9 w-100">
-                  <code>la pédale de blocage <kbd>B</kbd> </code>: Le train se
-                  met en mouvement. Lorsqu'il passe sur la pédale, un signal de
-                  blocage est activé pour assurer la sécurité et empêcher le
-                  passage d'un autre train.
-                </div>
-                <h6>Étape 4:</h6>
-                <div class="fs-9 w-100">
-                  <code> Fermez le sémaphore </code>: Assurez la fermeture du
-                  signal et la sécurité.
-                </div>
-                <h6>Étape 5:</h6>
-                <div class="fs-9 w-100">
-                  <code> Cliquez sur annonce </code>: Envoyez une annonce à la
-                  gare B pour informer du passage du train, puis cliquez sur
-                  sonnerie pour arrêter la sonnerie (gare B).
-                </div>
-                <hr />
-                <h6>Étape 6:</h6>
-                <div class="fs-9 w-100">
-                  <code>
-                    Cliquez sur la pédale de passage à la gare B
-                    <kbd>PB</kbd> </code
-                  >: Pour faire arriver le train à la gare B.
-                </div>
-                <h6>Étape 7:</h6>
-                <div class="fs-9 w-100">
-                  <code> Cliquez sur réédition (bloc côté B) </code>: Assurez
-                  l'arrivée du train, puis cliquez sur sonnerie pour arrêter la
-                  sonnerie (gare A).
-                </div>
-              </div>
-            </div>
-
-            <div class="dropdown dropdown1">
-              <a
-                class="btn dropdown-toggle navbar_items"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Aide
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item col-6 row d-flex justify-content-center align-items-center"
-                    href="about.html"
-                    >About Developper</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <a ><i class="bi bi-keyboard-fill"></i></a>
-          </div>
-
-          <div class="d-flex justify-content-center align-items-center">
-            <a href="" id="date"></a>
-          </div>
-          <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-between navbar_bar p-3">
+          <div class="d-flex gap-3">
             <img
-              src="../assets/assets/images/icon.png"
-              width="40"
-              alt=""
-              class="logo_App"
-              id="logo_App"
+              src="../assets/assets/images/oncf_logo.png"
+              width="80"
+              alt="ONCF Logo"
+              class="logo"
+            />
+            <img
+              src="../assets/assets/images/est2.png"
+              width="80"
+              alt="EST Logo"
+              class="logo"
             />
           </div>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <h4 class="text-white m-0">BMVU - Simulation Interactive</h4>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <span class="text-white" id="date"></span>
+            <i class="bi bi-keyboard-fill text-white fs-4 cursor-pointer"></i>
+          </div>
         </div>
-        <!-- *------------------------------header----------------------- -->
 
-        <!-- !----------------------------BMVU screen --------------------->
-
-        <!-- shortcuts -->
-        <div class="shortcuts-box dropzone-box row" >
-          <h2 >Shortcuts Menu</h2>
+        <!-- Shortcuts Panel -->
+        <div class="shortcuts-box dropzone-box row" style="display: none;">
+          <h2>Raccourcis Clavier</h2>
           <i class="bi bi-x-circle"></i>
-          <ul class="col-6">
-              <li><span class="shortcut-key"><kbd>Ctrl + t</kbd></span> test</li>
-              <li><span class="shortcut-key"><kbd>Ctrl + s</kbd></span> semaphore</li>
-              <li><span class="shortcut-key"><kbd>Ctrl + r</kbd></span> redition</li>
-              <li><span class="shortcut-key"><kbd>Ctrl + a</kbd></span> annonce</li>
-              <li><span class="shortcut-key"><kbd>Ctrl + f</kbd></span> sonnerie</li>
-              <li><span class="shortcut-key"><kbd>Ctrl + b</kbd></span>  blockage</li>
-              <li><span class="shortcut-key"><kbd>b</kbd></span>  pedal block B (gare A)</li>
-              <li><span class="shortcut-key"><kbd>v</kbd></span> pb </li>
-              <li><span class="shortcut-key"><kbd>r</kbd></span> reload</li>
-          </ul>
-          <ul class="col-6">
-            <li><span class="shortcut-key"><kbd>Alt + t</kbd></span> test</li>
-            <li><span class="shortcut-key"><kbd>Alt + s</kbd></span> semaphore</li>
-            <li><span class="shortcut-key"><kbd>Alt + r</kbd></span> redition</li>
-            <li><span class="shortcut-key"><kbd>Alt + a</kbd></span> annonce</li>
-            <li><span class="shortcut-key"><kbd>Alt + f</kbd></span> sonnerie</li>
-            <li><span class="shortcut-key"><kbd>Alt + b</kbd></span>  blockage</li>
-            <li><span class="shortcut-key"><kbd>x</kbd></span>  pedal block B (gare A)</li>
-            <li><span class="shortcut-key"><kbd>c</kbd></span> pb </li>
-            <li><span class="shortcut-key"><kbd>f</kbd></span> fullscreen</li>
-        </ul>
-      </div>
+          <div class="col-6">
+            <h5>Station A</h5>
+            <ul>
+              <li><kbd>Ctrl + T</kbd> Test</li>
+              <li><kbd>Ctrl + S</kbd> Sémaphore</li>
+              <li><kbd>Ctrl + R</kbd> Rédition</li>
+              <li><kbd>Ctrl + A</kbd> Annonce</li>
+              <li><kbd>Ctrl + F</kbd> Sonnerie</li>
+              <li><kbd>Ctrl + B</kbd> Blocage</li>
+              <li><kbd>B</kbd> Pédale Blocage</li>
+              <li><kbd>C</kbd> Pédale Passage</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h5>Station B</h5>
+            <ul>
+              <li><kbd>Alt + T</kbd> Test</li>
+              <li><kbd>Alt + S</kbd> Sémaphore</li>
+              <li><kbd>Alt + R</kbd> Rédition</li>
+              <li><kbd>Alt + A</kbd> Annonce</li>
+              <li><kbd>Alt + F</kbd> Sonnerie</li>
+              <li><kbd>Alt + B</kbd> Blocage</li>
+              <li><kbd>X</kbd> Pédale Blocage</li>
+              <li><kbd>V</kbd> Pédale Passage</li>
+            </ul>
+          </div>
+        </div>
 
-
+        <!-- Main BMVU Interface -->
         <div class="container-fluid hero row height_100vh">
           <!-- *-------------left block----------------- -->
           <div class="col-3 block-cote block-coteA h-100 d-flex flex-column">
@@ -676,8 +465,8 @@
       <!-- 
   bootstrap linl
  -->
-      <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/js/script.js"></script>
+      <script src="../assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../assets/assets/js/script.js"></script>
       <!-- 
   fontawsome link
  -->
@@ -693,8 +482,65 @@
           shell.openExternal(url);
         }
       </script>
+      <!-- Preloader Removal Script -->
+      <script>
+        // Remove preloader when page loads - 4 seconds
+        window.addEventListener('load', function() {
+          const preloader = document.querySelector('.preloader_container');
+          if (preloader) {
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 4000); // Hide after 4 seconds
+          }
+        });
+
+        // Also try DOMContentLoaded as fallback - 4 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+          const preloader = document.querySelector('.preloader_container');
+          if (preloader) {
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 4000); // Hide after 4 seconds
+          }
+
+          // Update date display
+          const dateElement = document.getElementById('date');
+          if (dateElement) {
+            const now = new Date();
+            dateElement.textContent = now.toLocaleDateString('fr-FR', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+          }
+
+          // Keyboard shortcuts handler
+          const shortcutsIcon = document.querySelector('.bi-keyboard-fill');
+          const shortcutsBox = document.querySelector('.shortcuts-box');
+          const closeShortcuts = document.querySelector('.bi-x-circle');
+
+          if (shortcutsIcon && shortcutsBox) {
+            shortcutsIcon.addEventListener('click', () => {
+              shortcutsBox.style.display = shortcutsBox.style.display === 'none' ? 'flex' : 'none';
+            });
+          }
+
+          if (closeShortcuts && shortcutsBox) {
+            closeShortcuts.addEventListener('click', () => {
+              shortcutsBox.style.display = 'none';
+            });
+          }
+        });
+
+        // Ensure preloader is removed after exactly 4 seconds (failsafe)
+        setTimeout(() => {
+          const preloader = document.querySelector('.preloader_container');
+          if (preloader) {
+            preloader.style.display = 'none';
+          }
+        }, 4000);
+      </script>
     </div>
   </body>
 </html>
-
-<!--ctrl shift o  -->
