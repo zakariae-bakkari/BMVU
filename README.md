@@ -28,6 +28,8 @@ L'application vise à simuler fidèlement le fonctionnement du système de signa
 - Simulation des procédures de communication entre gares
 - Gestion des autorités de circulation
 - Système de sémaphores et signalisation
+- <img width="1913" height="856" alt="image" src="https://github.com/user-attachments/assets/fc590ad5-e5fc-41a1-a31b-8385276632db" />
+<img width="1915" height="868" alt="image" src="https://github.com/user-attachments/assets/1b103dd5-f027-418e-8b74-197997228027" />
 
 ### 🎮 Fonctionnalités Interactives
 - **Gestion des Blocs** : Activation/désactivation des systèmes de blocage
