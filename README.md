@@ -1,5 +1,7 @@
 # BMVU - Block Manuel de Voie Unique Simulation
 
+🌐 **[Essayez la démo en ligne](https://zakariae-bakkari.github.io/BMVU/)** | 💻 **Application Desktop**
+
 ## 📋 À Propos du Projet
 
 Ce projet est une **simulation interactive** du système BMVU (Block Manuel de Voie Unique) utilisé par l'ONCF (Office National des Chemins de Fer du Maroc). Il s'agit d'une application éducative développée en tant que **projet de stage** à **ONCF AGDAL** sous la supervision d'ingénieurs ferroviaires expérimentés.
@@ -75,7 +77,15 @@ BMVU/
 └── README.md             # Documentation
 ```
 
-## 🚀 Installation et Utilisation
+## 🌐 Démo en Ligne
+
+Vous pouvez essayer la simulation directement dans votre navigateur sans installation :
+
+**👉 [https://zakariae-bakkari.github.io/BMVU/](https://zakariae-bakkari.github.io/BMVU/)**
+
+La version web offre toutes les fonctionnalités de base de la simulation BMVU et fonctionne sur tous les navigateurs modernes.
+
+## 🚀 Installation et Utilisation (Application Desktop)
 
 ### Prérequis
 - Node.js (version 14 ou supérieure)
