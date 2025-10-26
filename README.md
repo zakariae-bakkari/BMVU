@@ -156,6 +156,27 @@ Cette simulation permet de :
 - **Visualiser** l'impact des actions sur la sécurité
 - **Apprendre** sans risque sur du matériel réel
 
+## 📖 Publication sur GitHub Pages
+
+Le projet inclut une version web qui peut être publiée sur GitHub Pages. Pour activer le site web :
+
+### Configuration Automatique (Recommandée)
+
+1. Allez dans **Settings** → **Pages** de votre dépôt GitHub
+2. Sous **Source**, sélectionnez **GitHub Actions**
+3. Le workflow est déjà configuré dans `.github/workflows/pages.yml`
+4. Fusionnez cette PR dans la branche `main`
+5. Le site sera automatiquement déployé à : `https://zakariae-bakkari.github.io/BMVU/`
+
+### Configuration Manuelle
+
+1. Allez dans **Settings** → **Pages**
+2. Sous **Source**, sélectionnez **Deploy from a branch**
+3. Choisissez la branche **main** et le dossier **/docs**
+4. Cliquez sur **Save**
+
+Pour plus de détails, consultez le [Guide de Configuration GitHub Pages](GITHUB_PAGES_SETUP.md).
+
 ## 🔧 Développement
 
 ### Scripts Disponibles
